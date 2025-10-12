@@ -522,7 +522,38 @@
     "subject": "Project Management process",
     "object": "consistency of project plans, activities, and outcomes"
   }
+},
+{
+  "utterance": "Base Practice MAN.3.BP10: Review and report progress of the project.",
+  "Slots": {
+    "intention": "review_and_report",
+    "action": ["review", "report"],
+    "relation": "procedural",
+    "modality": "necessity",
+    "emotion": "neutral",
+    "subject": "Project Management process",
+    "object": "progress of the project"
+  }
+},
+{
+  "utterance": "Base Practice MAN.3.BP10: Review and report progress of the project. Regularly review and report the status of the project and the fulfillment of work packages against estimated effort and duration to all affected parties. Prevent recurrence of identified problems.",
+  "Slots": {
+    "intention": "review_and_report",
+    "action": ["review", "report", "prevent"],
+    "relation": "procedural",
+    "modality": "necessity",
+    "emotion": "neutral",
+    "subject": "Project Management process",
+    "object": [
+      "progress of the project",
+      "status of the project",
+      "fulfillment of work packages",
+      "recurrence of identified problems"
+    ],
+    "condition": "against estimated effort and duration; reporting to all affected parties"
+  }
 }
+
 
 
 ]
