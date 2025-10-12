@@ -215,5 +215,85 @@
         "subject": "TBD",
         "object": "to be determined"
     }
+},
+
+
+{
+  "utterance": "The scope of the work for the project is defined.",
+  "Slots": {
+    "intention": "define",
+    "action": "define",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "scope of the work for the project"
+  }
+},
+{
+  "utterance": "The feasibility of achieving the goals of the project with available resources and constraints is evaluated.",
+  "Slots": {
+    "intention": "define",
+    "action": "evaluate",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "feasibility of achieving project goals"
+  }
+},
+{
+  "utterance": "The activities and resources necessary to complete the work are sized and estimated.",
+  "Slots": {
+    "intention": "define",
+    "action": "estimate",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "activities and resources necessary to complete the work"
+  }
+},
+{
+  "utterance": "Interfaces within the project, and with other projects and organizational units, are identified and monitored.",
+  "Slots": {
+    "intention": "define",
+    "action": "identify_and_monitor",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "interfaces within the project and with other organizational units"
+  }
+},
+{
+  "utterance": "Plans for the execution of the project are developed, implemented and maintained.",
+  "Slots": {
+    "intention": "define",
+    "action": "develop_implement_and_maintain",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "plans for project execution"
+  }
+},
+{
+  "utterance": "Progress of the project is monitored and reported.",
+  "Slots": {
+    "intention": "define",
+    "action": "monitor_and_report",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "progress of the project"
+  }
+},
+{
+  "utterance": "Adjustment is performed when project goals are not achieved.",
+  "Slots": {
+    "intention": "define",
+    "action": "adjust",
+    "relation": "is_outcome_of",
+    "emotion": "neutral",
+    "subject": "Project Management process outcomes",
+    "object": "project goals not achieved"
+  }
 }
+
 ]
