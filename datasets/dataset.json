@@ -217,7 +217,21 @@
     }
 },
 
+{
+  "utterance": "The purpose of Project Management is to identify and control the activities, and establish resources necessary for a project to develop a product, in the context of the project's requirements and constraints.",
+  "Slots": {
+    "intention": "define_property",
+    "action": "identify_control_and_establish",
+    "relation": "inherent",
+    "emotion": "neutral",
+    "subject": "Project Management",
+    "object": "purpose to identify and control activities and establish resources within project constraints"
+  }
+}
 
+
+
+,
 {
   "utterance": "The scope of the work for the project is defined.",
   "Slots": {
