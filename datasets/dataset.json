@@ -313,7 +313,7 @@
     "action": "define_and_identify",
     "relation": "inherent",
     "emotion": "neutral",
-    "subject": "The Base Practice MAN.3.BP1 of Project Management",
+    "subject": "Project Management process",
     "object": "definition of the scope of work, identification of the project's goals, motivation and boundaries"
   },
   "Notes": [
@@ -329,7 +329,7 @@
     "action": "define",
     "relation": "inherent",
     "emotion": "neutral",
-    "subject": "The Base Practice MAN.3.BP2 of Project Management",
+    "subject": "Project Management process",
     "object": "definition of the project life cycle appropriate to its scope, context, and complexity, and definition of the release scope for relevant milestones"
   },
   "Notes":[
@@ -348,14 +348,14 @@
     ]
 },
 {
-  "utterance": "Evaluate feasibility of the project.",
+  "utterance": "MAN.3. Base Practice 3: Evaluate feasibility of the project.",
   "Slots": {
     "intention": "evaluate_feasibility",
     "action": "evaluate",
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP3",
+    "subject": "Project Management process",
     "object": "feasibility of the project"
   }
 },
@@ -367,7 +367,7 @@
     "relation": "inherent",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "The Base Practice MAN.3.BP3 of Project Management",
+    "subject": "Project Management process",
     "object": "evaluation of the feasibility of achieving project goals considering time, estimates, and available resources"
   },
   "Notes":[
@@ -393,86 +393,86 @@
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP4",
+    "subject": "Project Management process",
     "object": "work packages and their dependencies",
     "condition": "according to defined project life cycle and estimations"
   }
 },
 {
-  "utterance": "Define and monitor project estimates and resources.",
+  "utterance": "MAN.3 Base Practice 5: Define and monitor project estimates and resources.",
   "Slots": {
     "intention": "define_and_observe",
     "action": ["define", "monitor"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP5",
+    "subject": "Project Management process",
     "object": "project estimates and resources"
   }
 },
 {
-  "utterance": "Define and monitor project estimates of effort and resources based on project's goals, project risks, motivation and boundaries.",
+  "utterance": "MAN.3 Base Practice 5: Define and monitor project estimates of effort and resources based on project's goals, project risks, motivation and boundaries.",
   "Slots": {
     "intention": "define_and_observe",
     "action": ["define", "monitor"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP5",
+    "subject": "Project Management process",
     "object": "project estimates of effort and resources",
     "condition": "based on project's goals, project risks, motivation and boundaries"
   }
 },
 
 {
-  "utterance": "Define and monitor required skills, knowledge, and experience.",
+  "utterance": "MAN.3 Base Practice 6: Define and monitor required skills, knowledge, and experience.",
   "Slots": {
     "intention": "define_and_observe",
     "action": ["define", "monitor"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP6",
+    "subject": "Project Management process",
     "object": "required skills, knowledge, and experience"
   }
 },
 
 {
-  "utterance": "Define and monitor required skills, knowledge, and experience. Identify and monitor the required skills, knowledge, and experience for the project in line with the estimates and work packages.",
+  "utterance": "MAN.3 Base Practice 6: Define and monitor required skills, knowledge, and experience. Identify and monitor the required skills, knowledge, and experience for the project in line with the estimates and work packages.",
   "Slots": {
     "intention": "define_and_control",
     "action": ["define", "monitor", "identify"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP6",
+    "subject": "Project Management process",
     "object": "required skills, knowledge, and experience for the project",
     "condition": "in line with the estimates and work packages"
   }
 },
 
 {
-  "utterance": "Define and monitor project interfaces and agreed commitments.",
+  "utterance": "MAN.3 Base Practice 7: Define and monitor project interfaces and agreed commitments.",
   "Slots": {
     "intention": "define_and_observe",
     "action": ["define", "monitor"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP7",
+    "subject": "Project Management process",
     "object": "project interfaces and agreed commitments"
   }
 },
 
 {
-  "utterance": "Define and monitor project interfaces and agreed commitments. Identify and agree interfaces of the project with affected stakeholders and monitor agreed commitments. Define an escalation mechanism for commitments that are not fulfilled.",
+  "utterance": "MAN.3 Base Practice 7: Define and monitor project interfaces and agreed commitments. Identify and agree interfaces of the project with affected stakeholders and monitor agreed commitments. Define an escalation mechanism for commitments that are not fulfilled.",
   "Slots": {
     "intention": "define_and_control",
     "action": ["define", "monitor", "identify", "agree"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP7",
+    "subject": "Project Management process",
     "object": [
       "project interfaces with affected stakeholders",
       "agreed commitments"
@@ -490,19 +490,19 @@
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP8",
+    "subject": "Project Management process",
     "object": "project schedule"
   }
 },
 {
-  "utterance": "Define and monitor project schedule. Allocate resources to work packages and schedule each activity of the project. Monitor the performance of activities against schedule.",
+  "utterance": "MAN.3 Base Practice 8: Define and monitor project schedule. Allocate resources to work packages and schedule each activity of the project. Monitor the performance of activities against schedule.",
   "Slots": {
     "intention": "define_and_observe",
     "action": ["define", "monitor", "allocate", "schedule"],
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Base Practice MAN.3.BP8",
+    "subject": "Project Management process",
     "object": [
       "project schedule",
       "resources allocated to work packages",
@@ -510,22 +510,19 @@
       "performance of activities against schedule"
     ]
   }
-}
+},
 {
-  "utterance": "Ensure consistency.",
+  "utterance": "MAN.3 Base Practice 9: Ensure consistency.",
   "Slots": {
     "intention": "ensure",
     "action": "ensure",
     "relation": "procedural",
     "modality": "necessity",
     "emotion": "neutral",
-    "subject": "Project Management process (MAN.3.BP9)",
+    "subject": "Project Management process",
     "object": "consistency of project plans, activities, and outcomes"
   }
 }
-
-
-
 
 
 ]
