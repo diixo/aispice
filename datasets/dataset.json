@@ -1,0 +1,219 @@
+
+[
+{
+    "utterance": "ATDD - acceptance test-driven development",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "ATDD",
+        "object": "acceptance test-driven development"
+    }
+},
+{
+    "utterance": "BDD - behavior-driven development",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "BDD",
+        "object": "behavior-driven development"
+    }
+},
+{
+    "utterance": "BRD - business requirement documents",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "BRD",
+        "object": "business requirement documents"
+    }
+},
+{
+    "utterance": "DA - Disciplined Agile",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "DA",
+        "object": "Disciplined Agile"
+    }
+},
+{
+    "utterance": "DoD - definition of done",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "DoD",
+        "object": "definition of done"
+    }
+},
+{
+    "utterance": "DoR - definition of ready",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "DoR",
+        "object": "definition of ready"
+    }
+},
+{
+    "utterance": "DSDM - Dynamic Systems Development Method",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "DSDM",
+        "object": "Dynamic Systems Development Method"
+    }
+},
+{
+    "utterance": "Evo - evolutionary value delivery",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "Evo",
+        "object": "evolutionary value delivery"
+    }
+},
+{
+    "utterance": "LeSS - Large-Scale Scrum",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "LeSS",
+        "object": "Large-Scale Scrum"
+    }
+},
+{
+    "utterance": "LSD - Lean Software Development",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "LSD",
+        "object": "Lean Software Development"
+    }
+},
+{
+    "utterance": "PDCA - Plan-Do-Check-Act",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "PDCA",
+        "object": "Plan-Do-Check-Act"
+    }
+},
+{
+    "utterance": "PMO - project management office",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "PMO",
+        "object": "project management office"
+    }
+},
+{
+    "utterance": "ROI - return on investment",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "ROI",
+        "object": "return on investment"
+    }
+},
+{
+    "utterance": "RUP - rational unified process",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "RUP",
+        "object": "rational unified process"
+    }
+},
+{
+    "utterance": "SAFe - Scaled Agile Framework",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "SAFe",
+        "object": "Scaled Agile Framework"
+    }
+},
+{
+    "utterance": "SBE - specification by example",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "SBE",
+        "object": "specification by example"
+    }
+},
+{
+    "utterance": "XP - eXtreme Programming",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "XP",
+        "object": "eXtreme Programming"
+    }
+},
+{
+    "utterance": "TBD - to be determined",
+    "Slots":
+    {
+        "intention": "define",
+        "action": "be",
+        "relation": "is_abbreviation_of",
+        "emotion": "neutral",
+        "subject": "TBD",
+        "object": "to be determined"
+    }
+}
+]
