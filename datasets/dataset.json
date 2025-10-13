@@ -323,7 +323,7 @@
   ]
 },
 {
-  "utterance": "MAN.3. Base Practice: Define project life cycle.",
+  "utterance": "MAN.3. Base Practice 2: Define project life cycle.",
   "Slots": {
     "intention": "define",
     "action": "define",
