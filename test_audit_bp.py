@@ -96,8 +96,62 @@ Mixed criticality enhancements (safety and real-time related requirements) in te
 HERE based Navigation solutions serves as demo only
 ACCESS AppStore solutions serves as demo only
 Hardware, Mechanical and Electrical types of work are out of scope of the project
-The ASPICE CL2 applies only for the following components:
+
+6. Technical Process
+6.1 Project Life Cycle
+Introduction to the Agile V-Model
+An  iterative agile framework with a V-model  will be used as the software development life cycle. Agile : SAFe
+
+This means that:
+
+The smallest iteration, for which we plan, implement, review and adjust is called a Sprint - which is 2 weeks long. A Product Increment is consists of 6 Sprints (12 weeks long) and ends up with Major Release
+In each of these Sprints, multiple activities are carried out in parallel (wherever applicable) to build the end product. These include:
+a. Software Requirements Analysis
+
+b. Software Architecture Design
+
+c. Software Detailed Design and Unit Construction
+
+d. Software Unit Testing
+
+e. Software Integration and Integration Testing
+
+f. Software Qualification Test
+
+
+
+Sprintly Activities
+(warning) Note: For the common definition, documentation may include one of the definitions of sprint: sprint, scrum and/or iteration. All terms to be treated equaly in definition.
+
+In order to plan, monitor, review and refine the team's activities, there are regular meetings/ceremonies scheduled in each Sprint:
+
+## The sprint lifecycle:
+Scrum and sprints follow a similar life cycle, where a series of increments are released to customers.
+
+1. Sprint planning: is the first phase (event) of the sprint life cycle.
+During sprint planning, the product owner will go through the entire product backlog with the scrum team as per their priorities. The scrum team estimates the user stories or tasks. Based on the sprint goals defined, the user stories are picked for implementation in the current sprint.
+
+2. Sprint execution: is the lengthiest phase of the sprint life cycle.
+The development team will implement every user story and task planned for the current sprint. All the activities, design, development, and testing are to be completed as per the definition of done during this phase.
+
+3. Sprint review: is the third event in the sprint life cycle.
+This is where the scrum team showcases the shippable increment to the product owner and other stakeholders.
+
+4. Sprint retrospective: is the last phase.
+Sometimes, scrum teams complete this event before the sprint review to help them present any concerns and notes in the sprint review itself. This is considered the last phase of the sprint, after which the next sprint would start all over again from sprint planning. During this phase, the team answers the following questions:
+
+* What went well in the sprint?
+* What could be improved?
+* What will we commit to improving in the next sprint?
+
+5. Product Backlog Refinement: is an ongoing phase within the Scrum life cycle.
+This is where the Scrum Team collaborates to add detail, estimates, and order to Product Backlog items (PBIs) to prepare them for future sprints. 
 """
+
+
+#https://blog.logrocket.com/product-management/guide-to-the-five-types-of-scrum-meetings/
+
+#https://blog.logrocket.com/product-management/what-is-a-sprint-agile-scrum-teams/
 
 ###########################################################################
 
@@ -181,6 +235,9 @@ Return your result in JSON format:
 Text for analysis:
 \"\"\"{confluence}\"\"\"
 '''
+
+prompt_BP_2 = ""
+
 
 inputs = tokenizer(prompt_BP_1, return_tensors="pt").to(device)
 outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
