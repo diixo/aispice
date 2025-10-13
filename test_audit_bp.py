@@ -236,10 +236,40 @@ Text for analysis:
 \"\"\"{confluence}\"\"\"
 '''
 
-prompt_BP_2 = ""
+prompt_BP_2 = f'''
+Task: evaluate whether the given text satisfies reference of Base Practice: "Define project life cycle."
+
+Base Practice Reference:
+"Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project.
+Define a release scope for relevant milestones.
+Note 1: This may include the alignment of the project life cycle with the customer's development process."
+
+Follow:
+1. Analyze the provided text.
+2. Determine whether it defines or describes the **project life cycle** — i.e., a structured sequence of phases, stages, or activities from project initiation to closure.
+3. Check if the definition or description is **appropriate to the project's scope, context, and complexity**.
+4. Verify if the text mentions or implies a **release scope** or **milestones**.
+5. Check for any indication of **alignment with the customer's development process**.
+
+Return the result as structured JSON:
+
+{{
+  "subject": "Project Life Cycle",
+  "has_definition": true/false,
+  "mentions_release_scope": true/false,
+  "mentions_milestones": true/false,
+  "mentions_alignment_with_customer_process": true/false,
+  "appropriateness_to_context": "high|medium|low|unknown",
+  "evidence": "exact quote(s) from the text that justify the assessment",
+  "comments": "brief reasoning for the evaluation"
+}}
+
+Text for analysis:
+\"\"\"{confluence}\"\"\"
+'''
 
 
-inputs = tokenizer(prompt_BP_1, return_tensors="pt").to(device)
+inputs = tokenizer(prompt_BP_2, return_tensors="pt").to(device)
 outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
