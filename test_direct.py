@@ -45,11 +45,11 @@ Workbench product to support Luxoft and customer SWE + SYS testing by providing 
 ###########################################################################
 
 prompt = f'''
-Task: Determine whether the text defines the concept of a "project" according our criterias, extract the project's name if it is mentioned.
+Task: Determine whether the text describe project definition according our criterias, extract the project's name if it is mentioned.
 
 Subject: "Project"
 Object of verification: The text provided below.
-Criterion: The text must explicitly or implicitly describe what a project is, defining its purpose, scope, goals, boundaries, resources, or constraints.
+Criteria: The text must explicitly or implicitly describe the project definition. A project definition should describe the project's scope, goals, motivation, boundaries, resources, or constraints.
 
 If the text defines what a project is — answer "YES" and provide the supporting phrase.
 If the text only mentions "project" without defining it — answer "NO".
@@ -75,7 +75,7 @@ Task: Determine whether the text defines the concept of a "project" according ou
 Subject: "Project"
 Object of verification: The text provided below.
 
-Criterias:
+Criteria:
 1. The text must describe what a project is — its purpose, scope, goals, boundaries, resources, or constraints.
 2. If a specific project name, title, or identifier appears, extract it.
 3. If there is no explicit name, return null for project_name.
