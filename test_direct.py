@@ -44,6 +44,31 @@ Workbench product to support Luxoft and customer SWE + SYS testing by providing 
 
 ###########################################################################
 
+prompt = f'''
+Task: Determine whether the text defines the concept of a "project" according our criterias, extract the project's name if it is mentioned.
+
+Subject: "Project"
+Object of verification: The text provided below.
+Criterion: The text must explicitly or implicitly describe what a project is, defining its purpose, scope, goals, boundaries, resources, or constraints.
+
+If the text defines what a project is — answer "YES" and provide the supporting phrase.
+If the text only mentions "project" without defining it — answer "NO".
+
+Return your answer in JSON:
+
+{{
+  "subject": "Project",
+  "project_name": "string or null",
+  "has_definition": true/false,
+  "evidence": "short quote or phrase that defines the project"
+  "purpose": "string or null",
+  "goals": "string or null",
+}}
+
+Text:
+\"\"\"{confluence}\"\"\"
+'''
+
 prompt_BP_1 = f'''
 Task: Determine whether the text defines the concept of a "project" according our criterias, extract the project's name if it is mentioned.
 
@@ -61,14 +86,14 @@ Return your answer in JSON:
   "subject": "Project",
   "has_definition": true/false,
   "project_name": "string or null",
-  "evidence": "quote or short phrase supporting the conclusion"
+  "evidence": "short quote or phrase that defines the project"
 }}
 
 Text:
 \"\"\"{confluence}\"\"\"
 '''
 
-inputs = tokenizer(prompt_BP_1, return_tensors="pt").to(device)
+inputs = tokenizer(prompt, return_tensors="pt").to(device)
 outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
