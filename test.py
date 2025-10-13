@@ -57,8 +57,8 @@ role = """\nYour task is to analyze the input sentence and extract structured sl
 
 Slots you must always provide:
 - intention: the overall communicative goal (e.g. request, report, define_rule, express_preference, complaint, provide_info).
-- action: the main verb/action expressed (e.g. attitude, ask, influence, provide, contain, report, describe, approve, reject).
-- relation: the type of relationship between subject and object (e.g. attitude, contains, must_have, may_contain, not_allowed, allowed, depends_on, describes, causes).
+- action: the main verb/action expressed (e.g. ask, influence, provide, contain, report, describe, approve, reject).
+- relation: the type of relationship between subject and object (e.g. contextual, procedural, inherent, attitude, contains, must_have, may_contain, not_allowed, allowed, depends_on, describes, causes).
 - subject: person or entity that performs or is responsible for the action.
 - object: person or entity or entities that the action is directed at.
 - emotion: the emotional tone if expressed (e.g. neutral, positive, negative, frustration, satisfaction).
@@ -72,7 +72,7 @@ prompts = [
     #"The purpose of this document is to describe the process of conducting Work Product reviews.",
     "I like this product.",
     #"What is the delivery date?",
-    # "The system is too slow",
+    "The system is too slow",
 
     # Uncomment for batch generation
     # "Introduce yourself in JSON as a professor.",
