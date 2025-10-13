@@ -14,7 +14,7 @@ model.to(device)
 
 confluence = """
 1.2 Project Purpose
-Name of the project: Amber  
+Name of the project: "Amber"
 
 The main goal of the project is timely feature delivery according to requirements in compliance with ASPICE processes.
 
@@ -45,13 +45,12 @@ Workbench product to support Luxoft and customer SWE + SYS testing by providing 
 ###########################################################################
 
 prompt_BP_1 = f'''
-Task: Determine whether the text defines the concept of a "project"
-according to ASPICE Base Practice MAN.3, and extract the project's name if it is mentioned.
+Task: Determine whether the text defines the concept of a "project" according our criterias, extract the project's name if it is mentioned.
 
 Subject: "Project"
 Object of verification: The text provided below.
 
-Criteria:
+Criterias:
 1. The text must describe what a project is — its purpose, scope, goals, boundaries, resources, or constraints.
 2. If a specific project name, title, or identifier appears, extract it.
 3. If there is no explicit name, return null for project_name.
