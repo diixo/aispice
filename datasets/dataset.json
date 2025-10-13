@@ -323,6 +323,18 @@
   ]
 },
 {
+  "utterance": "MAN.3. Base Practice: Define project life cycle.",
+  "Slots": {
+    "intention": "define",
+    "action": "define",
+    "relation": "procedural",
+    "modality": "necessity",
+    "emotion": "neutral",
+    "subject": "Project Management process",
+    "object": "project life cycle appropriate to the scope, context, and complexity of the project"
+  }
+},
+{
   "utterance": "MAN.3. Base Practice 2: Define project life cycle. Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project. Define a release scope for relevant milestones.",
   "Slots": {
     "intention": "define_activity",
