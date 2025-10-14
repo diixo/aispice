@@ -291,8 +291,7 @@ Text for analysis:
 ##############################
 
 prompt_BP_2_strong = f'''
-Task: evaluate whether the provided text defines or describes a 
-"Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
+Task: evaluate whether the provided text defines or describes a "Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
 
 ---
 
@@ -382,13 +381,11 @@ Your analysis must:
 
 **Evaluation Criteria**:
 
-| Criterion | Description | Expected Evidence |
-|------------|--------------|-------------------|
-| C1. Definition Presence | The text clearly defines or refers to a "project life cycle" or similar concept. | Keywords: "life cycle", "framework", "phases", "model" |
-| C2. Lifecycle Structure | The text describes a structured sequence of activities similar to the Agile stages. | Mentions or implies Analysis, Design, Development, Testing, Deployment, Feedback |
-| C3. Iteration / Release Definition | The text defines iteration, sprint, or release cycle. | "Sprint", "Increment", "Major Release", "Iteration" |
-| C4. Context Alignment | The lifecycle is appropriate to the project's scope, complexity, and context. | Mentions "Agile", "V-model", or "appropriate to project" |
-| C5. Customer Process Alignment | The text mentions alignment with customer or higher-level lifecycle. | "Aligned with customer", "aligned with system development process" |
+* C1 Definition Presence. The text clearly defines or refers to a "project life cycle" or similar concept. Expected evidences as Keywords: "life cycle", "framework", "phases", "model"
+* C2 Lifecycle Structure. The text describes a structured sequence of activities similar to the Agile stages. Expected evidences is mentions or implies: Analysis, Design, Development, Testing, Deployment, Feedback
+* C3 Iteration / Release Definition. The text defines iteration, sprint, or release cycle. Expected evidences: "Sprint", "Increment", "Major Release", "Iteration"
+* C4 Context Alignment. The lifecycle is appropriate to the project's scope, complexity, and context. Expected evidences is mentions: "Agile", "V-model", or "appropriate to project"
+* C5 Customer Process Alignment. The text mentions alignment with customer or higher-level lifecycle. Expected evidences: "Aligned with customer", "aligned with system development process"
 
 Each criterion can be **True / False**.  
 Overall conformity is **True** only if C1, C2, and C3 are satisfied.
