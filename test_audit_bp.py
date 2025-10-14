@@ -345,7 +345,7 @@ Text for analysis:
 ############################################
 
 prompt_BP_2_ext = f'''
-Task: evaluate whether the provided text defines or describes a "Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
+Task: evaluate whether the provided text defines or describes a "Project Life Cycle" consistent with MAN.3.BP2 and the reference to predefined Agile software development lifecycle.
 
 ---
 
@@ -353,7 +353,7 @@ Reference 1: ASPICE MAN.3.BP2
 "Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project.
 Define a release scope for relevant milestones. This may include the alignment of the project life cycle with the customer's development process."
 
-Reference 2: Organization's Agile Software Development Lifecycle
+Reference 2: Predefined Agile Software Development Lifecycle
 
 The Agile software development lifecycle covers the following stages:
 
@@ -381,14 +381,15 @@ Your analysis must:
 
 **Evaluation Criteria**:
 
-* C1 Definition Presence. The text clearly defines or refers to a "project life cycle" or similar concept. Expected evidences as Keywords: "life cycle", "framework", "phases", "model"
-* C2 Lifecycle Structure. The text describes a structured sequence of activities similar to the Agile stages. Expected evidences is mentions or implies: Analysis, Design, Development, Testing, Deployment, Feedback
-* C3 Iteration / Release Definition. The text defines iteration, sprint, or release cycle. Expected evidences: "Sprint", "Increment", "Major Release", "Iteration"
-* C4 Context Alignment. The lifecycle is appropriate to the project's scope, complexity, and context. Expected evidences is mentions: "Agile", "V-model", or "appropriate to project"
-* C5 Customer Process Alignment. The text mentions alignment with customer or higher-level lifecycle. Expected evidences: "Aligned with customer", "aligned with system development process"
+* C1 Definition Presence. The text clearly defines or refers to a "project life cycle" or similar concept. Expected evidences as Keywords: "life cycle", "framework", "phases", "model". Expected: True/False
+* C2 Reference. The text either contain references adherence to a predefined "project lifecycle" (e.g., "according to the defined Agile V-model lifecycle"). Expected: True/False
+* C3 Lifecycle Structure. The text describes a structured sequence of activities similar to the Agile stages. Expected evidences is mentions or implies: Analysis, Design, Development, Testing, Deployment, Feedback. Expected: True/False
+* C4 Iteration / Release Definition. The text defines iteration, sprint, or release cycle. Expected evidences: "Sprint", "Increment", "Major Release", "Iteration". Expected: True/False
+* C5 Context Alignment. The lifecycle is appropriate to the project's scope, complexity, and context. Expected evidences is mentions: "Agile", "V-model", or "appropriate to project". Expected: True/False
+* C6 Customer Process Alignment. The text mentions alignment with customer or higher-level lifecycle. Expected evidences: "Aligned with customer", "aligned with system development process". Expected: True/False
 
 Each criterion can be **True / False**.  
-Overall conformity is **True** only if C1, C2, and C3 are satisfied.
+Overall conformity is **True** only if criterion C1, C2, and C3 are satisfied.
 
 ---
 
@@ -397,6 +398,7 @@ Return the result as structured JSON:
 {{
   "subject": "Project Life Cycle",
   "has_definition": true/false,
+  "has_reference": true/false,
   "mentions_release_scope": true/false,
   "mentions_milestones": true/false,
   "mentions_alignment_with_customer_process": true/false,
@@ -411,6 +413,6 @@ Text for analysis:
 ################################
 
 inputs = tokenizer(prompt_BP_2_ext, return_tensors="pt").to(device)
-outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
+outputs = model.generate(**inputs, max_new_tokens=400, temperature=0.2)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
