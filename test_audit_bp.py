@@ -288,9 +288,132 @@ Return the result as structured JSON:
 Text for analysis:
 \"\"\"{confluence}\"\"\"
 '''
+##############################
+
+prompt_BP_2_strong = f'''
+Task: evaluate whether the provided text defines or describes a 
+"Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
+
+---
+
+Reference 1: ASPICE MAN.3.BP2
+"Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project.
+Define a release scope for relevant milestones. This may include the alignment of the project life cycle with the customer's development process."
+
+Reference 2: Organization's Agile Software Development Lifecycle
+
+The Agile software development lifecycle covers the following stages:
+
+1. **Analysis and Requirement Definition** — Future product owners create a list of main requirements. The development team analyzes relevant aspects to figure out the core features and remove unnecessary functionality.
+2. **Design** — The team designs the interface and architecture based on key requirements, selects technologies, and produces UI mockups.
+3. **Development** — The solution is implemented according to the agreed requirements. This phase is typically the longest.
+4. **Testing** — QA staff conduct comprehensive testing (functionality, integration, acceptance, etc.) and provide reports.
+5. **Deployment** — After all bugs are fixed, the software is deployed (possibly as a beta version) for user testing.
+6. **Feedback** — Support staff collect user feedback to identify improvements and ensure satisfaction.
 
 
-inputs = tokenizer(prompt_BP_2_strong, return_tensors="pt").to(device)
+Follow:
+1. Analyze the provided text.
+2. Determine whether it defines or describes the **project life cycle** — i.e., a structured sequence of phases, stages, or activities from project initiation to closure.
+3. Check if the definition or description is **appropriate to the project's scope, context, and complexity**.
+4. Verify if the text mentions or implies a **release scope** or **milestones**.
+5. Check for any indication of **alignment with the customer's development process**.
+
+Evaluation criteria:
+1. Does the text describe a structured set of project phases or iterations?
+2. Does it indicate a start-to-end structure (initiation → execution → release or closure)?
+3. Is the described life cycle appropriate to the project's context or methodology (e.g., Agile SAFe)?
+4. Does it include or imply releases, milestones, or iterations?
+5. Is there alignment with customer or organizational process?
+
+Return the result as structured JSON:
+
+{{
+  "subject": "Project Life Cycle",
+  "has_definition": true/false,
+  "mentions_release_scope": true/false,
+  "mentions_milestones": true/false,
+  "mentions_alignment_with_customer_process": true/false,
+  "appropriateness_to_context": "high|medium|low|unknown",
+  "evidence": "exact quote(s) from the text that justify the assessment",
+  "comments": "brief reasoning for the evaluation"
+}}
+
+Text for analysis:
+\"\"\"{confluence}\"\"\"
+'''
+
+############################################
+
+prompt_BP_2_ext = f'''
+Task: evaluate whether the provided text defines or describes a "Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
+
+---
+
+Reference 1: ASPICE MAN.3.BP2
+"Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project.
+Define a release scope for relevant milestones. This may include the alignment of the project life cycle with the customer's development process."
+
+Reference 2: Organization's Agile Software Development Lifecycle
+
+The Agile software development lifecycle covers the following stages:
+
+1. **Analysis and Requirement Definition** — Future product owners create a list of main requirements. The development team analyzes relevant aspects to figure out the core features and remove unnecessary functionality.
+2. **Design** — The team designs the interface and architecture based on key requirements, selects technologies, and produces UI mockups.
+3. **Development** — The solution is implemented according to the agreed requirements. This phase is typically the longest.
+4. **Testing** — QA staff conduct comprehensive testing (functionality, integration, acceptance, etc.) and provide reports.
+5. **Deployment** — After all bugs are fixed, the software is deployed (possibly as a beta version) for user testing.
+6. **Feedback** — Support staff collect user feedback to identify improvements and ensure satisfaction.
+
+---
+Follow **Tasks**:
+Analyze the provided text and determine whether it defines or describes a *project life cycle* consistent with the above definitions.
+
+Your analysis must:
+1. Identify if a project life cycle or similar process structure is defined.
+2. Compare the described lifecycle with the reference Agile structure.
+3. Check for explicit or implicit mentions of:
+   - lifecycle structure or phases (Analysis, Design, Development, Testing, Deployment, Feedback)
+   - iteration or release definitions (e.g., sprints, increments, milestones)
+   - alignment with customer or system-level processes
+4. Determine the semantic similarity and completeness.
+
+---
+
+**Evaluation Criteria**:
+
+| Criterion | Description | Expected Evidence |
+|------------|--------------|-------------------|
+| C1. Definition Presence | The text clearly defines or refers to a "project life cycle" or similar concept. | Keywords: "life cycle", "framework", "phases", "model" |
+| C2. Lifecycle Structure | The text describes a structured sequence of activities similar to the Agile stages. | Mentions or implies Analysis, Design, Development, Testing, Deployment, Feedback |
+| C3. Iteration / Release Definition | The text defines iteration, sprint, or release cycle. | "Sprint", "Increment", "Major Release", "Iteration" |
+| C4. Context Alignment | The lifecycle is appropriate to the project's scope, complexity, and context. | Mentions "Agile", "V-model", or "appropriate to project" |
+| C5. Customer Process Alignment | The text mentions alignment with customer or higher-level lifecycle. | "Aligned with customer", "aligned with system development process" |
+
+Each criterion can be **True / False**.  
+Overall conformity is **True** only if C1, C2, and C3 are satisfied.
+
+---
+
+Return the result as structured JSON:
+
+{{
+  "subject": "Project Life Cycle",
+  "has_definition": true/false,
+  "mentions_release_scope": true/false,
+  "mentions_milestones": true/false,
+  "mentions_alignment_with_customer_process": true/false,
+  "appropriateness_to_context": "high|medium|low|unknown",
+  "evidence": "exact quote(s) from the text that justify the assessment",
+  "comments": "brief reasoning for the evaluation"
+}}
+
+Text for analysis:
+\"\"\"{confluence}\"\"\"
+'''
+################################
+
+inputs = tokenizer(prompt_BP_2_ext, return_tensors="pt").to(device)
 outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
