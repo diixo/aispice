@@ -100,7 +100,7 @@ Hardware, Mechanical and Electrical types of work are out of scope of the projec
 6. Technical Process
 6.1 Project Life Cycle
 Introduction to the Agile V-Model
-An  iterative agile framework with a V-model  will be used as the software development life cycle. Agile : SAFe
+An iterative agile framework with a V-model will be used as the software development life cycle. Agile : SAFe
 
 This means that:
 
@@ -236,13 +236,27 @@ Text for analysis:
 \"\"\"{confluence}\"\"\"
 '''
 
-prompt_BP_2 = f'''
-Task: evaluate whether the given text satisfies reference of Base Practice: "Define project life cycle."
+prompt_BP_2_strong = f'''
+Task: evaluate whether the provided text defines or describes a 
+"Project Life Cycle" consistent with MAN.3.BP2 and the organization's defined Agile software development lifecycle.
 
-Base Practice Reference:
+---
+
+Reference 1: ASPICE MAN.3.BP2
 "Define the life cycle for the project, which is appropriate to the scope, context, and complexity of the project.
-Define a release scope for relevant milestones.
-Note 1: This may include the alignment of the project life cycle with the customer's development process."
+Define a release scope for relevant milestones. This may include the alignment of the project life cycle with the customer's development process."
+
+Reference 2: Organization's Agile Software Development Lifecycle
+
+The Agile software development lifecycle covers the following stages:
+
+1. **Analysis and Requirement Definition** — Future product owners create a list of main requirements. The development team analyzes relevant aspects to figure out the core features and remove unnecessary functionality.
+2. **Design** — The team designs the interface and architecture based on key requirements, selects technologies, and produces UI mockups.
+3. **Development** — The solution is implemented according to the agreed requirements. This phase is typically the longest.
+4. **Testing** — QA staff conduct comprehensive testing (functionality, integration, acceptance, etc.) and provide reports.
+5. **Deployment** — After all bugs are fixed, the software is deployed (possibly as a beta version) for user testing.
+6. **Feedback** — Support staff collect user feedback to identify improvements and ensure satisfaction.
+
 
 Follow:
 1. Analyze the provided text.
@@ -250,6 +264,13 @@ Follow:
 3. Check if the definition or description is **appropriate to the project's scope, context, and complexity**.
 4. Verify if the text mentions or implies a **release scope** or **milestones**.
 5. Check for any indication of **alignment with the customer's development process**.
+
+Evaluation criteria:
+1. Does the text describe a structured set of project phases or iterations?
+2. Does it indicate a start-to-end structure (initiation → execution → release or closure)?
+3. Is the described life cycle appropriate to the project's context or methodology (e.g., Agile SAFe)?
+4. Does it include or imply releases, milestones, or iterations?
+5. Is there alignment with customer or organizational process?
 
 Return the result as structured JSON:
 
@@ -269,7 +290,7 @@ Text for analysis:
 '''
 
 
-inputs = tokenizer(prompt_BP_2, return_tensors="pt").to(device)
+inputs = tokenizer(prompt_BP_2_strong, return_tensors="pt").to(device)
 outputs = model.generate(**inputs, max_new_tokens=300, temperature=0.2)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
