@@ -21,14 +21,14 @@ COPY . /app
 RUN pip install -r requirements.txt && pip cache purge
 
 
-# Устанавливаем PyTorch (на всякий случай переустановим именно нужную сборку)
+# Install PyTorch (reinstall scecified version):
 RUN pip install torch==2.5.1+cu118 torchvision==0.20.1+cu118 torchaudio==2.5.1+cu118 \
     --extra-index-url https://download.pytorch.org/whl/cu118
 
-# Проверочный скрипт
+# Checking script:
 RUN echo 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))' > /app/test_torch.py
 
-# По умолчанию запуск проверки
+# By default, run checking:
 CMD ["python3.10", "test_torch.py"]
 
 
