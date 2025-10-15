@@ -35,11 +35,11 @@ CMD ["python3.10", "test_torch.py"]
 # create image:
 # docker build -t torch-gpu .
 
+# run image:
 # docker run --rm -it --gpus all --name torchcheck torch-gpu /bin/bash
 
-# python3 -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))"
-
 # python3 --version
+
 
 # Node 20 LTS for building the Svelte UI
 # RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
