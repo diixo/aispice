@@ -1,0 +1,17 @@
+numpy==1.26.4
+tqdm==4.67.1
+tensorflow==2.14.0
+pandas==2.3.1
+datasets==3.6.0
+transformers==4.56.1
+scikit-learn==1.6.1
+evaluate==0.4.6
+accelerate==1.10.1
+xgrammar==0.1.25
+fastapi==0.116.1
+faiss-cpu==1.8.0
+streamlit==1.50.0
+spacy==3.8.7
+scipy==1.15.1
+beautifulsoup4==4.12.2
+sentence-transformers==3.0.0
