@@ -1,3 +1,12 @@
+# create image:
+# docker build -t torch-gpu .
+
+# run image:
+# docker run --rm -it --gpus all --name torchcheck torch-gpu /bin/bash
+
+# python3 --version
+
+######################################################################
 
 # Base on PyTorch with CUDA 12.1 to simplify GPU stack
 #FROM pytorch/pytorch:2.4.0-cuda12.1-cudnn9-devel AS base
@@ -7,7 +16,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
 
-# Python 3.10.8
+# Python 3.10.12
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 python3.10-venv python3.10-distutils python3-pip && \
     rm -rf /var/lib/apt/lists/*
@@ -30,15 +39,6 @@ RUN echo 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.
 
 # By default, run checking:
 CMD ["python3.10", "test_torch.py"]
-
-
-# create image:
-# docker build -t torch-gpu .
-
-# run image:
-# docker run --rm -it --gpus all --name torchcheck torch-gpu /bin/bash
-
-# python3 --version
 
 
 # Node 20 LTS for building the Svelte UI
