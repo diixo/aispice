@@ -13,8 +13,10 @@
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04 AS base
 
 ARG DEBIAN_FRONTEND=noninteractive
-WORKDIR /app
 
+# Copy sources
+COPY . /app
+WORKDIR /app
 
 # Python 3.10.12
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -23,8 +25,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN python3.10 -m pip install --upgrade pip setuptools wheel
 
-# Copy sources
-COPY . /app
 
 # Python deps (GPU-enabled torch is already present in base image)
 RUN pip install -r requirements.txt && pip cache purge
