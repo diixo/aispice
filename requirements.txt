@@ -8,7 +8,6 @@ transformers==4.56.1
 scikit-learn==1.6.1
 evaluate==0.4.6
 accelerate==1.10.1
-xgrammar==0.1.25
 fastapi==0.116.1
 faiss-cpu==1.8.0
 streamlit==1.50.0
@@ -22,3 +21,5 @@ huggingface-hub==0.34.3
 vllm==0.11.0
 requests==2.32.4
 pydantic_settings==2.11.0
+websocket-client==1.8.0
+xgrammar==0.1.25
