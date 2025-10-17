@@ -20,7 +20,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 python3.10-venv python3.10-distutils python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3.10 -m pip install --upgrade pip setuptools wheel
+RUN ln -s /usr/bin/python3.10 /usr/bin/python
+
+# added python reference
+RUN python -m pip install --upgrade pip setuptools wheel
+
 
 # Copy sources
 COPY . /app
@@ -38,7 +42,7 @@ RUN pip install torch==2.5.1+cu118 torchvision==0.20.1+cu118 torchaudio==2.5.1+c
 RUN echo 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))' > /app/test_torch.py
 
 # By default, run checking:
-CMD ["python3.10", "test_torch.py"]
+#CMD ["python", "test_torch.py"]
 
 
 # Node 20 LTS for building the Svelte UI
