@@ -1,16 +1,17 @@
-# create image:
+# 1. create image:
 # docker build -t torch-gpu .
 
-# run image:
+# 2. run image:
 # docker run --rm -it --gpus all --name torchcheck torch-gpu /bin/bash
 
 # python3 --version
-
 ######################################################################
 
 # Base on PyTorch with CUDA 12.1 to simplify GPU stack
 #FROM pytorch/pytorch:2.4.0-cuda12.1-cudnn9-devel AS base
-FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04 AS base
+
+#FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04 AS base
+FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04 AS base
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -20,9 +21,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 python3.10-venv python3.10-distutils python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
+# added python reference
 RUN ln -s /usr/bin/python3.10 /usr/bin/python
 
-# added python reference
 RUN python -m pip install --upgrade pip setuptools wheel
 
 
@@ -35,8 +36,8 @@ RUN pip install -r requirements.txt && pip cache purge
 
 
 # Install PyTorch (reinstall scecified version):
-RUN pip install torch==2.5.1+cu118 torchvision==0.20.1+cu118 torchaudio==2.5.1+cu118 \
-    --extra-index-url https://download.pytorch.org/whl/cu118
+RUN pip install torch==2.8.0+cu128 torchvision==0.23.0+cu128 torchaudio==2.8.0+cu128 \
+    --extra-index-url https://download.pytorch.org/whl/cu128
 
 # Checking script:
 RUN echo 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))' > /app/test_torch.py
@@ -61,3 +62,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certifi
 #  && npm ci --legacy-peer-deps \
 #  && npx vite build
 
+ENTRYPOINT ["/bin/bash"]
