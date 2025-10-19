@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 python3.10-venv python3.10-distutils python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
-# added python reference
+# attached symbolic reference
 RUN ln -s /usr/bin/python3.10 /usr/bin/python
 
 RUN python -m pip install --upgrade pip setuptools wheel
