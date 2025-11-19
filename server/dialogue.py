@@ -15,12 +15,14 @@ class Conversation:
 class Dialogue_gpt2:
 
     def __init__(self):
-        model_dir = "server/models/gpt2-babi"
-        self.tokenizer = GPT2Tokenizer.from_pretrained(model_dir)
-        self.model = GPT2LMHeadModel.from_pretrained(model_dir)
+        #model_dir = "server/models/124M"
+        self.tokenizer = None # GPT2Tokenizer.from_pretrained(model_dir)
+        self.model = None # GPT2LMHeadModel.from_pretrained(model_dir)
 
 
     def build_prompt(self, conv: Conversation, user_message):
+        if self.model is None: return ""
+
         # Create prompt for model in format:
         """
         System:
@@ -45,6 +47,8 @@ class Dialogue_gpt2:
 
 
     def generate_response(self, prompt, max_new_tokens=100):
+        if self.model is None: return ""
+
         inputs = self.tokenizer(prompt, return_tensors="pt")
         outputs = self.model.generate(
             **inputs,
@@ -60,6 +64,7 @@ class Dialogue_gpt2:
 
 
     def handle_user_message(self, conv: Conversation, user_message=None):
+        if self.model is None: return ""
 
         system = f"System:\n{conv.system_prompt}\n"
 
@@ -80,6 +85,8 @@ class Dialogue_gpt2:
 
 
     def get_messages(self, conv: Conversation):
+        if self.model is None: return []
+
         return [
             Message(role=role, utterance=msg.replace("\n", " ").removeprefix(f"{role}: ").strip())
             for role, msg in conv.conversation_history
