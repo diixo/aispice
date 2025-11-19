@@ -1,0 +1,43 @@
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nata Sans";
+  src: url("static/NataSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
