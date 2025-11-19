@@ -1,0 +1,35 @@
+{% extends "app_main/base.html" %}
+
+{% block content %}
+
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<form class="bg-white rounded-4 p-4 border border-1 col-9" method="post">
+    {% csrf_token %}
+    <div class="mt-3 ms-2">
+        <label style="width: 260px"> Username*:
+            <input class="form-control" type="text" name="username" required>
+        </label>
+    </div>
+
+    <div class="mt-3 ms-2">
+        <label style="width: 260px">Password*:
+            <input class="form-control" type="password" name="password" required>
+        </label>
+    </div>
+    
+    <div class="mt-4 ms-2">
+        <button type="submit" class="btn btn-violet rounded-md px-5">Submit</button>
+        <div class="pt-3"></div>
+    </div>
+</form>
+
+
+{% endblock %}

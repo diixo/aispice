@@ -1,0 +1,177 @@
+
+{% extends "app_main/base.html" %}
+
+{% block meta %}
+<title>Title</title>
+<meta property="og:title" content="Title">
+<meta name="description" content="Description">
+<meta property="og:description" content="Description">
+{% endblock %}
+
+{% block content %}
+
+<div class="chat-wrapper rounded-5">
+
+  <div class="chat-box mt-4" id="chatBox">
+
+  {% for msg in messages %}
+    {% if msg.role == "Assistant" %}
+    <div class="message bot">
+      <div class="avatar"><i class="fa-regular fa-message-bot"></i></div>
+      <div class="bubble">{{msg.utterance}}</div>
+    </div>
+    {% else %}
+    <div class="message user">{{msg.utterance}}</div>
+    {% endif %}
+  {% endfor %}
+
+  </div>
+
+
+  <div class="chat-input rounded-5">
+    <form method="POST" class="d-flex align-items-end" id="chatForm">
+      {% csrf_token %}
+      <textarea id="chatInput" name="query" type="text" class="form-control me-2" rows="1" placeholder="Message to Assistant..."></textarea>
+      <button class="btn btn-violet rounded-pill flex-shrink-0 d-flex align-items-center"
+        type="submit" value="send_action" name="send_action_btn" title="send message">
+        <span class="material-icons-round">send</span>
+      </button>
+
+      <button class="btn btn-outline-secondary ms-2 rounded-pill flex-shrink-0 d-flex align-items-center"
+        type="button" id="newChatBtn" value="new_chat" name="create_new_chat" title="new chat">
+        <span class="material-icons me-1">post_add</span>new chat
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const chatForm = document.getElementById("chatForm");
+  const chatInput = document.getElementById("chatInput");
+  const chatWindow = document.getElementById("chatBox");
+  const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+  const newChatBtn = document.getElementById("newChatBtn");
+
+  // --- Aute-increase height of textarea ---
+  chatInput.addEventListener("input", function () {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
+  });
+
+  // --- Enter = send; Shift+Enter = newline ---
+  chatInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      chatForm.requestSubmit(); // force send form
+    }
+  });
+
+  chatForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const query = chatInput.value.trim();
+    if (!query) return;
+
+    // ➤ 1. Added User message
+    appendMessage("user", query);
+    chatInput.value = "";
+    chatInput.style.height = "auto";  // height recovery
+
+    // ➤ 2. show temporary message: "Assistant is typing…"
+    const typingMsg = appendMessage("assistant", "<i>Assistant is typing...</i>");
+
+    try {
+      const response = await fetch("", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-CSRFToken": csrfToken,
+        },
+        body: new URLSearchParams({
+          query: query,
+          send_action_btn: "1",
+        })
+      });
+
+      const data = await response.json();
+
+      // ➤ 3. change "typing…" to real answer
+      typingMsg.querySelector(".bubble").innerHTML = data.response || "<i>No response</i>";
+    } catch (error) {
+      typingMsg.querySelector(".bubble").innerHTML = "<i>Error connection</i>";
+      console.error(error);
+    }
+
+    // bottom autoscrolling
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  });
+
+  newChatBtn.addEventListener("click", async function () {
+    console.log("Create new chat...");
+
+    try {
+      const response = await fetch("", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-CSRFToken": csrfToken,
+        },
+        body: new URLSearchParams({
+          "create_new_chat": "new_chat",
+        }),
+      });
+
+      const data = await response.json(); // wait for json from django
+      console.log("Response from Django:", data);
+
+      if (data.status === "ok") {
+        const chatWindow = document.getElementById("chatBox");
+        chatWindow.innerHTML = "";  // clear old messages
+
+        // append new messages
+        data.messages.forEach(msg => {
+          appendMessage(
+            msg.role.toLowerCase() === "assistant" ? "assistant" : "user",
+            msg.utterance
+          );
+        });
+      }
+    }
+    catch (error) {
+      console.error("Error creating new chat:", error);
+    }
+
+    if (response.ok) {
+      window.location.reload(); // update page => Django renders HTML anew
+    }
+  });
+
+  function appendMessage(role, text) {
+    const msg = document.createElement("div");
+
+    if (role === "assistant") {
+      msg.className = "message bot";
+      msg.innerHTML = `
+        <div class="avatar"><i class="fa-regular fa-message-bot"></i></div>
+        <div class="bubble">${text}</div>
+      `;
+    } else if (role === "user") {
+      msg.className = "message user";
+      msg.innerHTML = `
+        <div class="bubble">${text}</div>
+      `;
+    } else {
+      msg.className = "message";
+      msg.innerHTML = `<div class="bubble">${text}</div>`;
+    }
+
+    chatWindow.appendChild(msg);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+    return msg;
+  }
+});
+</script>
+
+
+{% endblock %}

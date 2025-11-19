@@ -1,0 +1,31 @@
+
+{% extends "app_main/base.html" %}
+
+{% block meta %}
+<title>Create job</title>
+<meta property="og:title" content="Scheduler">
+<meta name="description" content="Scheduler">
+<meta property="og:description" content="Scheduler">
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-10 col-12">
+    <form method="post" class="form-control rounded-4 p-4 border border-2">
+        {% csrf_token %}
+
+        <h5 class="text-center fw-bold mb-0">Add text to index</h5>
+
+        <p>
+            <label for="txt_name">Text:</label>
+            <input type="text" name="input_txt_field" maxlength="255" class="form-control bd-gray-200" required id="txt_name">
+        </p>
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" name="submit_txt_btn" value="submit_txt" class="btn btn-violet px2rem">Submit text</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends "app_main/base.html" %}
+
+{% block meta %}
+<title>Title</title>
+<meta property="og:title" content="Title">
+<meta name="description" content="Description">
+<meta property="og:description" content="Description">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="row bg-white rounded-4" style="height: auto !important; padding-top: 6rem;  padding-bottom: 6rem;">
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 d-flex align-items-stretch p-1">
+
+        <a class="p-4 w-100 rounded-5 model-detail-div" href="{% url 'app_main:chat-dev' %}">
+            <h5 class="mx-0 my-5 text-center">AI-Auditor</h5>
+        </a>
+
+    </div>
+
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 d-flex align-items-stretch p-1">
+
+        <a class="p-4 w-100 rounded-5 model-detail-div" href="{% url 'app_main:chat-dev' %}">
+            <h5 class="mx-0 my-5 text-center">AI-Manager</h5>
+        </a>
+
+    </div>
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 d-flex align-items-stretch p-1">
+
+        <a class="p-4 w-100 rounded-5 model-detail-div" href="{% url 'app_main:chat-dev' %}">
+            <h5 class="mx-0 my-5 text-center">AI-Developer</h5>
+        </a>
+
+    </div>
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 d-flex align-items-stretch p-1">
+
+        <a class="p-4 w-100 rounded-5 model-detail-div" href="{% url 'app_main:ai-search' %}">
+            <h5 class="mx-0 my-5 text-center">AI-Search</h5>
+        </a>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+
+/* averta-regular - latin */
+@font-face {
+	font-family: 'Averta';
+	font-style: normal;
+	font-weight: 400;
+	src: url('AvertaDemoPE-Regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		 url('AvertaDemoPE-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('AvertaDemoPE-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+		 url('AvertaDemoPE-Regular.woff') format('woff'), /* Modern Browsers */
+		 url('AvertaDemoPE-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+  }

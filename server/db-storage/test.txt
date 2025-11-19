@@ -1,0 +1,240 @@
+2d
+3d
+a.i
+adversarial machine learning
+ai
+ai model
+ai models
+ai processing
+ai research
+ai startup
+ai tool
+ai tools
+ai's
+ai-assist
+ai-assisted
+ai-based
+ai-driven
+ai-generated
+ai-powered
+aiops
+algorithms
+amazon
+amd
+analysis
+android
+api
+app
+app store
+application
+application programming interface
+applications
+apps
+architecture
+arm
+artificial intelligence
+asp.net
+assist
+assistant
+audio
+augmented reality
+autoencoder
+autonomous agent
+autonomous agents
+avatars
+aws
+bard
+big data
+bootstrap
+career
+chatbot
+chatbots
+chatgpt
+chatgpt's
+chip
+chips
+coding
+computer science
+computer vision
+computing
+convnet
+copilot
+cpu
+cpus
+css
+cuda
+cybersecurity
+dall-e
+data analyst
+data analytics
+data engineering
+data fusion
+data processing
+data science
+data scientist
+data warehouse
+dataanalysis
+databricks
+dataengineering
+datascience
+dataset
+datasets
+deep learning
+deep reinforcement learning
+deepfake
+deepmind
+dell
+designs
+developers
+development
+devops
+diagrams
+diffusion
+display
+displays
+django
+documents
+engineering
+experiment
+flask
+flutter
+framework
+from scratch
+front end
+gadget
+gadgets
+gamegpt
+games
+gaming
+genai
+generative
+generative ai
+github
+google
+google analytics
+google bard
+google cloud
+google colab
+google gemini
+google's
+gpt
+gpt-3
+gpt-4
+gpt-5
+gpt4
+gpts
+gpu
+gpu's
+gpus
+graph learning
+gru
+hardware
+html
+hugging face
+hyundai
+ibm
+image classification
+image detection
+image generator
+image generators
+images
+interview
+iphone
+java
+javascript
+js
+kotlin
+language model
+language models
+laptop
+laptops
+large language model
+large language models
+llama
+llm
+llm-based
+llms
+logos
+lstm
+machine learning
+math
+memes
+microsoft
+microsoft copilot
+midjourney
+midjourney's
+mixed reality
+ml
+mlops
+natural language
+natural language processing
+natural languages
+neural network
+neural network model
+neural networks
+nfts
+nlp
+notebook
+numeric data
+nvidia
+open source
+open-source
+openai
+openai's
+pandas
+perplexity
+perplexity's
+platform
+programming
+programming language
+pyspark
+python
+python courses
+python libraries
+python library
+pytorch
+qualcomm
+raspberrypi
+rcnn
+recommendation system
+reinforcement learning
+research
+robot
+robotics
+robots
+rust
+samsung
+script
+search
+search engine
+self-driving
+silicon valley
+siri
+smart home
+software
+software engineering
+speech-to-text
+sql
+stable diffusion
+startup
+startups
+synthetic data
+tech
+tech's
+tensorflow
+tesla
+text
+text data
+text-to-3d
+text-to-image
+text-to-video
+torch
+transformers
+ui
+video-to-video
+videos
+wallpapers
+web app
+web search
+webinar
+youtube
