@@ -40,9 +40,41 @@ def chat_view(request):
 
 
 def confluence(request):
+    headingBackend = "collapse"
+    headingEval = "collapse"
+    headingPick = "collapse"
+    headingPull = "collapse"
+    headingBuild = "collapse"
+
+    if request.method == "POST":
+        action = request.POST.get("action")
+
+        if action == "save":
+            confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
+            headingBackend = ""
+            print(action, confluence_host)
+            ...
+        elif action == "test":
+            confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
+            headingBackend = ""
+            print(action, confluence_host)
+            ...
+        elif action == "evaluate":
+            headingEval = ""
+            print(action)
+            ...
+        else:
+            print("unknown action...")
+
     return render(request, "app_main/confluence.html", context={
         "title": "Confluence settings",
-        "description": "Confluence"})
+        "description": "Confluence",
+        "headingBackend": headingBackend,
+        "headingEval": headingEval,
+        "headingPick": headingPick,
+        "headingPull": headingPull,
+        "headingBuild": headingBuild,
+        })
 
 
 def ai_search(request):

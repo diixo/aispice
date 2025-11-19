@@ -378,9 +378,10 @@ body {
 }
 
 .px2rem {
-  padding-right: 2.0rem !important;
-  padding-left: 2.0rem !important;
+  padding-right: 2.5rem !important;
+  padding-left: 2.5rem !important;
 }
+
 
 .job-details {
   font-family: 'Gilroy', sans-serif !important;

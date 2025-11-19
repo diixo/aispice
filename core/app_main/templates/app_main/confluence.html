@@ -14,6 +14,8 @@
 
 <h5 class="fw-bold mb-4 text-center" style="font-family: 'Public Sans';">Confluence</h5>
 
+<form method="post">
+    {% csrf_token %}
 
     <div class="accordion" id="mainAccordion">
 
@@ -24,13 +26,13 @@
               Backend Settings
             </button>
           </h2>
-          <div id="collapseBackend" class="accordion-collapse collapse" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
+          <div id="collapseBackend" class="accordion-collapse {{ headingBackend }}" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <form>
                 <div class="row g-3">
                   <div class="col-12 col-md-6">
                     <label for="confluenceHost" class="form-label">Confluence Host</label>
-                    <input type="url" class="form-control" id="confluenceHost" placeholder="https://host/confluence">
+                    <input type="url" name="confluence_host_field" class="form-control" id="confluenceHost" placeholder="https://host/confluence">
                   </div>
                   <div class="col-12 col-md-6">
                     <label for="patToken" class="form-label">PAT Token</label>
@@ -39,8 +41,8 @@
                 </div>
 
                 <div class="mt-3 d-flex gap-2">
-                  <button type="button" class="btn btn-primary px2rem" id="testBtn">Test</button>
-                  <button type="button" class="btn btn-secondary px2rem" id="saveBtn">Save</button>
+                  <button type="submit" name="action" value="test" class="btn btn-primary px2rem" id="testBtn">Test</button>
+                  <button type="submit" name="action" value="save" class="btn btn-secondary px2rem" id="saveBtn">Save</button>
                 </div>
               </form>
             </div>
@@ -54,18 +56,18 @@
               Evaluate Database
             </button>
           </h2>
-          <div id="collapseEval" class="accordion-collapse collapse" aria-labelledby="headingEval" data-bs-parent="#mainAccordion">
+          <div id="collapseEval" class="accordion-collapse {{ headingEval }}" aria-labelledby="headingEval" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <form>
                 <div class="row g-3">
                   <div class="col-12 col-md-4">
                     <label for="evalSpace" class="form-label">Space</label>
-                    <input type="text" class="form-control" id="evalSpace">
+                    <input type="text" class="form-control" value="SWT1AQ" id="evalSpace">
                   </div>
                 </div>
 
                 <div class="mt-3 d-flex align-items-center gap-3">
-                  <button type="button" class="btn btn-primary px2rem" id="evaluateBtn">Evaluate</button>
+                  <button type="submit" name="action" value="evaluate" class="btn btn-primary px2rem" id="evaluateBtn">Evaluate</button>
                   <div class="small text-muted">Stage: <strong class="text-body">idle</strong> · Pages: 0 Added: 0 Changed: 0 Deleted: 0</div>
                 </div>
               </form>
@@ -80,13 +82,13 @@
               Pick Confluence Documents
             </button>
           </h2>
-          <div id="collapsePick" class="accordion-collapse collapse" aria-labelledby="headingPick" data-bs-parent="#mainAccordion">
+          <div id="collapsePick" class="accordion-collapse {{ headingPick }}" aria-labelledby="headingPick" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <form>
                 <div class="row g-3">
                   <div class="col-12 col-md-4">
                     <label for="pickSpace" class="form-label">Space</label>
-                    <input type="text" class="form-control" id="pickSpace">
+                    <input type="text" class="form-control" id="pickSpace" value="SWT1AQ">
                   </div>
                 </div>
 
@@ -114,7 +116,7 @@
               Pull
             </button>
           </h2>
-          <div id="collapsePull" class="accordion-collapse collapse" aria-labelledby="headingPull" data-bs-parent="#mainAccordion">
+          <div id="collapsePull" class="accordion-collapse {{ headingPull }}" aria-labelledby="headingPull" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <div class="d-flex gap-2">
                 <button type="button" class="btn btn-secondary px2rem" id="pullBtn" disabled>Pull</button>
@@ -131,7 +133,7 @@
               Build / Activate
             </button>
           </h2>
-          <div id="collapseBuild" class="accordion-collapse collapse" aria-labelledby="headingBuild" data-bs-parent="#mainAccordion">
+          <div id="collapseBuild" class="accordion-collapse {{ headingBuild }}" aria-labelledby="headingBuild" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <div class="d-flex flex-wrap gap-2">
                 <button type="button" class="btn btn-secondary px2rem" id="buildStagingBtn">Build Staging</button>
@@ -144,6 +146,8 @@
         </div>
 
     </div> <!-- /.accordion -->
+
+</form>
 
 </div>
 
