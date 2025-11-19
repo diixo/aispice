@@ -10,30 +10,21 @@
 
 {% block content %}
 
-<div class="col-md-10 col-12 demo-public-sans bg-white px-3 py-4 rounded-3">
+<div class="col-md-10 col-12 demo-public-sans pt-4 rounded-3">
 
-<h5 class="fw-bold text-center" style="font-family: 'Public Sans';">Confluence</h5>
-
-<h6 class="fw-bold mb-3 text-center" style="font-family: 'Public Sans';">Confluence</h6>
-
-Confluence
-
-</div>
+<h5 class="fw-bold mb-4 text-center" style="font-family: 'Public Sans';">Confluence</h5>
 
 
-<div class="p-4 p-sm-5">
-    <div class="container-fluid">
-      <!-- Аккордеон -->
-      <div class="accordion" id="mainAccordion">
+    <div class="accordion" id="mainAccordion">
 
         <!-- Backend Settings -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingBackend">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBackend" aria-expanded="true" aria-controls="collapseBackend">
+            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBackend" aria-expanded="true" aria-controls="collapseBackend">
               Backend Settings
             </button>
           </h2>
-          <div id="collapseBackend" class="accordion-collapse collapse show" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
+          <div id="collapseBackend" class="accordion-collapse collapse" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <form>
                 <div class="row g-3">
@@ -48,8 +39,8 @@ Confluence
                 </div>
 
                 <div class="mt-3 d-flex gap-2">
-                  <button type="button" class="btn btn-primary" id="testBtn">Test</button>
-                  <button type="button" class="btn btn-secondary" id="saveBtn">Save</button>
+                  <button type="button" class="btn btn-primary px2rem" id="testBtn">Test</button>
+                  <button type="button" class="btn btn-secondary px2rem" id="saveBtn">Save</button>
                 </div>
               </form>
             </div>
@@ -59,7 +50,7 @@ Confluence
         <!-- Evaluate Database -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingEval">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEval" aria-expanded="false" aria-controls="collapseEval">
+            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEval" aria-expanded="false" aria-controls="collapseEval">
               Evaluate Database
             </button>
           </h2>
@@ -74,7 +65,7 @@ Confluence
                 </div>
 
                 <div class="mt-3 d-flex align-items-center gap-3">
-                  <button type="button" class="btn btn-primary" id="evaluateBtn">Evaluate</button>
+                  <button type="button" class="btn btn-primary px2rem" id="evaluateBtn">Evaluate</button>
                   <div class="small text-muted">Stage: <strong class="text-body">idle</strong> · Pages: 0 Added: 0 Changed: 0 Deleted: 0</div>
                 </div>
               </form>
@@ -85,7 +76,7 @@ Confluence
         <!-- Pick Confluence Documents -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingPick">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePick" aria-expanded="false" aria-controls="collapsePick">
+            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePick" aria-expanded="false" aria-controls="collapsePick">
               Pick Confluence Documents
             </button>
           </h2>
@@ -100,7 +91,7 @@ Confluence
                 </div>
 
                 <div class="mt-3 d-flex align-items-center gap-3">
-                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#confluenceTreeModal" id="choosePagesBtn">Choose Pages…</button>
+                  <button type="button" class="btn btn-outline-primary px2rem" data-bs-toggle="modal" data-bs-target="#confluenceTreeModal" id="choosePagesBtn">Choose Pages…</button>
                   <div class="small text-muted" id="selectedCount">0 selected</div>
                 </div>
 
@@ -119,15 +110,15 @@ Confluence
         <!-- Pull -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingPull">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePull" aria-expanded="false" aria-controls="collapsePull">
+            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePull" aria-expanded="false" aria-controls="collapsePull">
               Pull
             </button>
           </h2>
           <div id="collapsePull" class="accordion-collapse collapse" aria-labelledby="headingPull" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <div class="d-flex gap-2">
-                <button type="button" class="btn btn-secondary" id="pullBtn" disabled>Pull</button>
-                <button type="button" class="btn btn-outline-secondary" id="showPullDetails">Show details</button>
+                <button type="button" class="btn btn-secondary px2rem" id="pullBtn" disabled>Pull</button>
+                <button type="button" class="btn btn-outline-secondary px2rem" id="showPullDetails">Show details</button>
               </div>
             </div>
           </div>
@@ -136,28 +127,29 @@ Confluence
         <!-- Build / Activate -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingBuild">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBuild" aria-expanded="false" aria-controls="collapseBuild">
+            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBuild" aria-expanded="false" aria-controls="collapseBuild">
               Build / Activate
             </button>
           </h2>
           <div id="collapseBuild" class="accordion-collapse collapse" aria-labelledby="headingBuild" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
               <div class="d-flex flex-wrap gap-2">
-                <button type="button" class="btn btn-secondary" id="buildStagingBtn">Build Staging</button>
-                <button type="button" class="btn btn-secondary" id="activateBtn">Activate</button>
-                <button type="button" class="btn btn-outline-secondary" id="showBuildDetails">Show build details</button>
-                <button type="button" class="btn btn-outline-secondary" id="showActivateDetails">Show activate details</button>
+                <button type="button" class="btn btn-secondary px2rem" id="buildStagingBtn">Build Staging</button>
+                <button type="button" class="btn btn-secondary px2rem" id="activateBtn">Activate</button>
+                <button type="button" class="btn btn-outline-secondary px2rem" id="showBuildDetails">Show build details</button>
+                <button type="button" class="btn btn-outline-secondary px2rem" id="showActivateDetails">Show activate details</button>
               </div>
             </div>
           </div>
         </div>
 
-      </div> <!-- /.accordion -->
-    </div> <!-- /.container-fluid -->
-  </div> <!-- /.p-4 -->
+    </div> <!-- /.accordion -->
+
+</div>
+
 
   <!-- Modal: Confluence tree -->
-  <div class="modal fade" id="confluenceTreeModal" tabindex="-1" aria-labelledby="confluenceTreeModalLabel" aria-hidden="true">
+<div class="modal fade" id="confluenceTreeModal" tabindex="-1" aria-labelledby="confluenceTreeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
