@@ -51,75 +51,11 @@ def chat_auditor(request):
         "description": "Description chat"})
 
 
-def demo(request):
-    return render(request, "app_main/demo.html", context={
-        "title": "Demo font: Helvetica",
-        "description": "Helvetica"})
-
-def demo_0(request):
-    return render(request, "app_main/demo-0.html", context={
-        "title": "Demo fonts: Reith-Sans",
-        "description": "Reith-Sans"})
-
-def demo_1(request):
-    return render(request, "app_main/demo-1.html", context={
-        "title": "Demo fonts: Source-Sans-3",
-        "description": "Source-Sans-3"})
-
 def demo_2(request):
     return render(request, "app_main/demo-2.html", context={
         "title": "Demo fonts: Public-Sans",
         "description": "Public Sans"})
 
-def demo_3(request):
-    return render(request, "app_main/demo-3.html", context={
-        "title": "Demo fonts: PT-Sans",
-        "description": "PT Sans"})
-
-def demo_4(request):
-    return render(request, "app_main/demo-4.html", context={
-        "title": "Demo fonts: Fira-Sans",
-        "description": "Fira-Sans"})
-
-def demo_5(request):
-    return render(request, "app_main/demo-5.html", context={
-        "title": "Demo fonts: Assistant",
-        "description": "Assistant"})
-
-def demo_6(request):
-    return render(request, "app_main/demo-6.html", context={
-        "title": "Demo fonts: Cabin",
-        "description": "Cabin"})
-
-def demo_7(request):
-    return render(request, "app_main/demo-7.html", context={
-        "title": "Demo fonts: Golos Text",
-        "description": "Golos Text"})
-
-def demo_8(request):
-    return render(request, "app_main/demo-8.html", context={
-        "title": "Demo fonts: PT-Sans-Caption",
-        "description": "PT Sans Caption"})
-
-def demo_9(request):
-    return render(request, "app_main/demo-9.html", context={
-        "title": "Demo fonts: Work-Sans",
-        "description": "Work Sans"})
-
-def demo_10(request):
-    return render(request, "app_main/demo-10.html", context={
-        "title": "Demo fonts: Nata-Sans",
-        "description": "Nata Sans"})
-
-def demo_11(request):
-    return render(request, "app_main/demo-11.html", context={
-        "title": "Demo fonts: Vendor-Sans",
-        "description": "Vendor Sans"})
-
-def demo_12(request):
-    return render(request, "app_main/demo-12.html", context={
-        "title": "Demo fonts: Tirra",
-        "description": "Tirra"})
 
 def ai_search(request):
     api = viix_api.get_api()
