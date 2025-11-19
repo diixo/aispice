@@ -2,6 +2,20 @@
 @import url('fonts/dm-sans/dm-sans.css');
 @import url('fonts/gilroy/Gilroy.css');
 @import url('fonts/noto-sans/noto-sans.css');
+@import url('fonts/helvetica-now-mt/helvetica-now-mt.css');
+@import url('fonts/source-sans-3/source-sans-3.css');
+@import url('fonts/public-sans/public-sans.css');
+@import url('fonts/pt-sans/pt-sans.css');
+@import url('fonts/fira-sans/fira-sans.css');
+@import url('fonts/assistant/assistant.css');
+@import url('fonts/cabin/cabin.css');
+@import url('fonts/golos-text/golos-text.css');
+@import url('fonts/pt-sans-caption/pt-sans-caption.css');
+@import url('fonts/work-sans/work-sans.css');
+@import url('fonts/nata-sans/nata-sans.css');
+@import url('fonts/vend-sans/vend-sans.css');
+@import url('fonts/tirra/tirra.css');
+@import url('fonts/reith-sans/reith-sans.css');
 
 
 :root {
@@ -264,6 +278,90 @@ body {
 
 .article {
   font-family: 'Noto Sans', sans-serif;
+}
+
+.demo-reith-sans {
+  font-family: 'BBC-Reith-Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-helvetica-now-mt {
+  font-family: 'HelveticaNowMTText', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-source-sans-3 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-public-sans {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-pt-sans {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-fira-sans {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-assistant {
+  font-family: 'Assistant', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-cabin {
+  font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-golos-text {
+  font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-pt-sans-caption {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-work-sans {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-nata-sans {
+  font-family: 'Nata Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-vend-sans {
+  font-family: 'Vend Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-tirra {
+  font-family: 'Tirra', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
 .material-icons {
