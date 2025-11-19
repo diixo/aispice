@@ -11,9 +11,7 @@ urlpatterns = [
     path("logout",      views.logout_view,  name="logout"),
     path("add-text",    views.add_text,     name="add-text"),
     path("add-page",    views.add_page,     name="add-page"),
-    path("chat-dev",    views.chat_view,    name="chat-dev"),
-    path("chat-manager",views.chat_manager, name="chat-manager"),
-    path("chat-auditor",views.chat_auditor, name="chat-auditor"),
+    path("chat-view",   views.chat_view,    name="chat-view"),
 
-    path("demo-2",      views.demo_2,       name="demo-2"),
+    path("confluence",  views.confluence,   name="confluence"),
 ]

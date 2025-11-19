@@ -12,7 +12,7 @@ import time
 
 
 def main(request):
-    return redirect(to="app_main:ai-search")
+    return redirect(to="app_main:confluence")
     return render(request, "app_main/index.html", context={
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
@@ -39,22 +39,10 @@ def chat_view(request):
         })
 
 
-def chat_manager(request):
-    return render(request, "app_main/chat-dev.html", context={
-        "title": "Chat",
-        "description": "Description chat"})
-
-
-def chat_auditor(request):
-    return render(request, "app_main/chat-dev.html", context={
-        "title": "Chat",
-        "description": "Description chat"})
-
-
-def demo_2(request):
-    return render(request, "app_main/demo-2.html", context={
-        "title": "Demo fonts: Public-Sans",
-        "description": "Public Sans"})
+def confluence(request):
+    return render(request, "app_main/confluence.html", context={
+        "title": "Confluence settings",
+        "description": "Confluence"})
 
 
 def ai_search(request):
