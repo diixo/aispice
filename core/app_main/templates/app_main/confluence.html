@@ -20,4 +20,178 @@ Confluence
 
 </div>
 
+
+<div class="p-4 p-sm-5">
+    <div class="container-fluid">
+      <!-- Аккордеон -->
+      <div class="accordion" id="mainAccordion">
+
+        <!-- Backend Settings -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingBackend">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBackend" aria-expanded="true" aria-controls="collapseBackend">
+              Backend Settings
+            </button>
+          </h2>
+          <div id="collapseBackend" class="accordion-collapse collapse show" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
+            <div class="accordion-body">
+              <form>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="confluenceHost" class="form-label">Confluence Host</label>
+                    <input type="url" class="form-control" id="confluenceHost" placeholder="https://host/confluence">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="patToken" class="form-label">PAT Token</label>
+                    <input type="password" class="form-control" id="patToken" placeholder="">
+                  </div>
+                </div>
+
+                <div class="mt-3 d-flex gap-2">
+                  <button type="button" class="btn btn-primary" id="testBtn">Test</button>
+                  <button type="button" class="btn btn-secondary" id="saveBtn">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluate Database -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingEval">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEval" aria-expanded="false" aria-controls="collapseEval">
+              Evaluate Database
+            </button>
+          </h2>
+          <div id="collapseEval" class="accordion-collapse collapse" aria-labelledby="headingEval" data-bs-parent="#mainAccordion">
+            <div class="accordion-body">
+              <form>
+                <div class="row g-3">
+                  <div class="col-12 col-md-4">
+                    <label for="evalSpace" class="form-label">Space</label>
+                    <input type="text" class="form-control" id="evalSpace">
+                  </div>
+                </div>
+
+                <div class="mt-3 d-flex align-items-center gap-3">
+                  <button type="button" class="btn btn-primary" id="evaluateBtn">Evaluate</button>
+                  <div class="small text-muted">Stage: <strong class="text-body">idle</strong> · Pages: 0 Added: 0 Changed: 0 Deleted: 0</div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pick Confluence Documents -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPick">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePick" aria-expanded="false" aria-controls="collapsePick">
+              Pick Confluence Documents
+            </button>
+          </h2>
+          <div id="collapsePick" class="accordion-collapse collapse" aria-labelledby="headingPick" data-bs-parent="#mainAccordion">
+            <div class="accordion-body">
+              <form>
+                <div class="row g-3">
+                  <div class="col-12 col-md-4">
+                    <label for="pickSpace" class="form-label">Space</label>
+                    <input type="text" class="form-control" id="pickSpace">
+                  </div>
+                </div>
+
+                <div class="mt-3 d-flex align-items-center gap-3">
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#confluenceTreeModal" id="choosePagesBtn">Choose Pages…</button>
+                  <div class="small text-muted" id="selectedCount">0 selected</div>
+                </div>
+
+                <div class="mt-3 row">
+                  <div class="col-12 col-md-6">
+                    <label for="stopLabels" class="form-label">Stop Labels (comma-separated)</label>
+                    <input type="text" class="form-control" id="stopLabels" placeholder="obsolete, deprecated">
+                    <div class="form-text">Pages with any case-insensitive exact label match are excluded from Pull/Index/Activate.</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pull -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPull">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePull" aria-expanded="false" aria-controls="collapsePull">
+              Pull
+            </button>
+          </h2>
+          <div id="collapsePull" class="accordion-collapse collapse" aria-labelledby="headingPull" data-bs-parent="#mainAccordion">
+            <div class="accordion-body">
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-secondary" id="pullBtn" disabled>Pull</button>
+                <button type="button" class="btn btn-outline-secondary" id="showPullDetails">Show details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Build / Activate -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingBuild">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBuild" aria-expanded="false" aria-controls="collapseBuild">
+              Build / Activate
+            </button>
+          </h2>
+          <div id="collapseBuild" class="accordion-collapse collapse" aria-labelledby="headingBuild" data-bs-parent="#mainAccordion">
+            <div class="accordion-body">
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-secondary" id="buildStagingBtn">Build Staging</button>
+                <button type="button" class="btn btn-secondary" id="activateBtn">Activate</button>
+                <button type="button" class="btn btn-outline-secondary" id="showBuildDetails">Show build details</button>
+                <button type="button" class="btn btn-outline-secondary" id="showActivateDetails">Show activate details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /.accordion -->
+    </div> <!-- /.container-fluid -->
+  </div> <!-- /.p-4 -->
+
+  <!-- Modal: Confluence tree -->
+  <div class="modal fade" id="confluenceTreeModal" tabindex="-1" aria-labelledby="confluenceTreeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confluenceTreeModalLabel">Select the type of install:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 d-flex align-items-center gap-3">
+            <select class="form-select w-auto form-select-sm" aria-label="Install type">
+              <option>Full</option>
+              <option>Minimal</option>
+              <option>Custom</option>
+            </select>
+            <div class="small text-muted">Or, select the optional components you wish to install:</div>
+          </div>
+
+          <div class="mb-2 small text-muted">Space: <strong>SWT1AQ</strong> · Selected: <span id="modalSelectedCount">0</span></div>
+
+          <div class="border bg-light p-2 mb-2" style="max-height:40vh; overflow-y:auto;" role="tree" aria-multiselectable="true">
+            <div class="small text-muted">No children under space home.</div>
+            <!-- Здесь можно динамически вставлять дерево страниц -->
+          </div>
+
+          <div class="border p-2 bg-light" style="min-height:6rem;">
+            <div class="text-primary small fw-semibold mb-1">Description</div>
+            <div class="small text-muted">Position your mouse over a component to see its description.</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="modalSaveBtn">Save</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 {% endblock %}
