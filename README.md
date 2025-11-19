@@ -1,4 +1,4 @@
-# aispice: assessment, compliance, excellence
+# aispice: confluence, assessment, compliance, excellence
 
 
 ## Run django:
