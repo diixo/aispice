@@ -66,7 +66,7 @@ def confluence(request):
                 },
             )
             body = json.loads(raw_body)
-            print(status, body)
+            print(action, status, body)
 
         elif action == "test":
             confluence_host = request.POST.get("confluence_host_field", "")
@@ -83,11 +83,20 @@ def confluence(request):
                 },
             )
             body = json.loads(raw_body)
-            print(status, body)
+            print(action, status, body)
 
         elif action == "evaluate":
             headingEval = ""
-            print(action)
+            # raw_body, status = async_to_sync(make_post_request)(
+            #     url="http://127.0.0.1:8001/confluence/evaluate", data=
+            #     {
+            #         "confluence_host": confluence_host,
+            #         "token": pat,
+            #         "root_page_id": None,
+            #     },
+            # )
+            # body = json.loads(raw_body)
+            print(action, status, body)
 
         else:
             print("unknown action...")
