@@ -8,8 +8,9 @@ from django.conf import settings
 from . import viix_api
 from itertools import zip_longest
 from django.http import JsonResponse
+import json
 import time
-from viix_api import make_get_request, make_post_request
+from .viix_api import make_get_request, make_post_request
 from asgiref.sync import async_to_sync
 
 
@@ -52,25 +53,37 @@ def confluence(request):
         action = request.POST.get("action")
 
         if action == "save":
-            confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
-            headingBackend = ""
-            print(action, confluence_host)
-
-        elif action == "test":
-            confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
-            pat = request.POST.get("pat_field", "https://127.0.0.1/confluence")
+            confluence_host = request.POST.get("confluence_host_field", "")
+            pat = request.POST.get("pat_field", "")
             headingBackend = ""
             print(action, confluence_host, pat)
 
-            response = async_to_sync(make_post_request)(
-                "http://local127.0.0.1:8001/confluence/pat/test",
+            raw_body, status = async_to_sync(make_post_request)(
+                url="http://127.0.0.1:8001/confluence/pat/save", data=
+                {
+                    "confluence_host": confluence_host,
+                    "token": pat,
+                },
+            )
+            body = json.loads(raw_body)
+            print(status, body)
+
+        elif action == "test":
+            confluence_host = request.POST.get("confluence_host_field", "")
+            pat = request.POST.get("pat_field", "")
+            headingBackend = ""
+            print(action, confluence_host, pat)
+
+            raw_body, status = async_to_sync(make_post_request)(
+                url="http://127.0.0.1:8001/confluence/pat/test", data=
                 {
                     "confluence_host": confluence_host,
                     "token": pat,
                     "root_page_id": None,
                 },
             )
-            print(response)
+            body = json.loads(raw_body)
+            print(status, body)
 
         elif action == "evaluate":
             headingEval = ""

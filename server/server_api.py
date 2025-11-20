@@ -196,6 +196,8 @@ def _load_saved_pat() -> dict[str, str] | None:
 
 @app.post("/confluence/pat/test", tags=["confluence"])
 def confluence_pat_test(req: ConfluencePatRequest) -> Dict[str, Any]:
+    from fastapi.responses import JSONResponse
+
     host = req.confluence_host.strip()
     token = req.token.strip()
     try:
@@ -204,10 +206,18 @@ def confluence_pat_test(req: ConfluencePatRequest) -> Dict[str, Any]:
         resp = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=10)
         ok = 200 <= resp.status_code < 300
         if not ok:
-            return {"ok": False, "error": f"HTTP {resp.status_code}"}
-        return {"ok": True}
-    except Exception as exc:  # noqa: BLE001
-        return {"ok": False, "error": str(exc)}
+            return JSONResponse(
+                status_code=400,
+                content={"ok": False, "error": f"HTTP {resp.status_code}"}
+            )
+
+        return JSONResponse(status_code=200, content={"ok": True})
+
+    except Exception as exc:
+        return JSONResponse(
+            status_code=500,
+            content={"ok": False, "error": str(exc)}
+        )
 
 
 @app.get("/confluence/pat", tags=["confluence"])
@@ -224,7 +234,7 @@ def confluence_pat_save(req: ConfluencePatSaveRequest) -> Dict[str, Any]:
     host = req.confluence_host.strip()
     token = (req.token or "").strip()
     if not host:
-        raise HTTPException(status_code=400, detail="confluence_host required")
+        return {"ok": False, "error": "confluence_host is required"}
     if not token:
         # keep existing token if not provided
         token = str(cur.get("token") or "").strip()

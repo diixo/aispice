@@ -96,6 +96,7 @@ class JobStatusResponse(BaseModel):
     manual_keywords: Optional[List[str]]
     fusion_weights: Optional[Dict[str, float]]
     rerun_of: Optional[str] = None
+    #pydantic warning: model_profile, model_id
     model_profile: Optional[str] = None
     model_id: Optional[str] = None
     quantization: Optional[str] = None
