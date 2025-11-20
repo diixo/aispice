@@ -4,6 +4,7 @@ import os
 import json
 import requests
 import time
+import re
 from collections import deque
 from fastapi import APIRouter, Body, FastAPI, HTTPException, Response, WebSocket, WebSocketDisconnect, Query
 from server.searching_server import SearchingServer

@@ -24,3 +24,6 @@ pydantic_settings==2.11.0
 websocket-client==1.8.0
 triton==3.4.0
 xgrammar==0.1.25
+
+Django==5.2.4
+aiohttp==3.12.14

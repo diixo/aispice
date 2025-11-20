@@ -9,6 +9,8 @@ from . import viix_api
 from itertools import zip_longest
 from django.http import JsonResponse
 import time
+from viix_api import make_get_request, make_post_request
+from asgiref.sync import async_to_sync
 
 
 def main(request):
@@ -53,16 +55,27 @@ def confluence(request):
             confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
             headingBackend = ""
             print(action, confluence_host)
-            ...
+
         elif action == "test":
             confluence_host = request.POST.get("confluence_host_field", "https://127.0.0.1/confluence")
+            pat = request.POST.get("pat_field", "https://127.0.0.1/confluence")
             headingBackend = ""
-            print(action, confluence_host)
-            ...
+            print(action, confluence_host, pat)
+
+            response = async_to_sync(make_post_request)(
+                "http://local127.0.0.1:8001/confluence/pat/test",
+                {
+                    "confluence_host": confluence_host,
+                    "token": pat,
+                    "root_page_id": None,
+                },
+            )
+            print(response)
+
         elif action == "evaluate":
             headingEval = ""
             print(action)
-            ...
+
         else:
             print("unknown action...")
 
