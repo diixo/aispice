@@ -1,14 +1,13 @@
 
 import faiss
 from sentence_transformers import SentenceTransformer
-import numpy as np
 from pathlib import Path
 
 
 class SmartSearch:
 
     def __init__(self) -> None:
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.model = SentenceTransformer('server/datasets/all-MiniLM-L6-v2', local_files_only=True)
         self.index = None
 
 
