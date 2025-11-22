@@ -87,16 +87,24 @@ def confluence(request):
 
         elif action == "evaluate":
             headingEval = ""
-            # raw_body, status = async_to_sync(make_post_request)(
-            #     url="http://127.0.0.1:8001/confluence/evaluate", data=
-            #     {
-            #         "confluence_host": confluence_host,
-            #         "token": pat,
-            #         "root_page_id": None,
-            #     },
-            # )
-            # body = json.loads(raw_body)
+            eval_space = request.POST.get("eval_space_field", "SWT1AQ")
+            raw_body, status = async_to_sync(make_post_request)(
+                url="http://127.0.0.1:8001/confluence/evaluate", data=
+                {
+                    "space": eval_space,
+                    "root_page_id": "",
+                    "workers": 8,
+                },
+            )
+            body = json.loads(raw_body)
             print(action, status, body)
+
+            # get response
+            response, status = async_to_sync(make_get_request)(
+                url="http://127.0.0.1:8001/confluence/status",
+                params={"space": eval_space}
+                )
+            print("status_response:", json.loads(response))
 
         else:
             print("unknown action...")

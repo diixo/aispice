@@ -18,6 +18,7 @@ from pathlib import  Path
 import threading
 import uuid as _uuid
 import requests
+from fastapi.responses import JSONResponse
 
 
 APP_ROOT = Path(__file__).resolve().parent.parent
@@ -196,7 +197,6 @@ def _load_saved_pat() -> dict[str, str] | None:
 
 @app.post("/confluence/pat/test", tags=["confluence"])
 def confluence_pat_test(req: ConfluencePatRequest) -> Dict[str, Any]:
-    from fastapi.responses import JSONResponse
 
     host = req.confluence_host.strip()
     token = req.token.strip()
@@ -378,7 +378,7 @@ def _run_task(space: str, fn, *args, **kwargs) -> None:  # noqa: ANN001
 def confluence_evaluate(req: ConfluenceEvaluateRequest) -> Dict[str, Any]:
     saved = _load_saved_pat()
     if not saved:
-        raise HTTPException(status_code=400, detail="PAT not configured")
+        return JSONResponse(status_code=400, content="PAT not configured")
     auth_path = _write_space_auth(req.space, saved["confluence_host"], saved["token"])
     # Derive the space homepage id when not provided
     rid = (req.root_page_id or "").strip()
@@ -395,7 +395,7 @@ def confluence_evaluate(req: ConfluenceEvaluateRequest) -> Dict[str, Any]:
             except Exception:
                 rid = ''
         if not rid:
-            raise HTTPException(status_code=404, detail=f"Unable to resolve homepage for space {req.space}")
+            return JSONResponse(status_code=404, content=f"Unable to resolve homepage for space {req.space}")
     run_id = str(_uuid.uuid4())
     t = threading.Thread(
         target=_run_task,
@@ -405,7 +405,7 @@ def confluence_evaluate(req: ConfluenceEvaluateRequest) -> Dict[str, Any]:
     )
     _TASKS.setdefault(req.space, {})["thread"] = t
     t.start()
-    return {"ok": True, "run_id": run_id}
+    return JSONResponse(status_code=200, content={"ok": True, "run_id": run_id})
 
 
 @app.post("/confluence/pull", tags=["confluence"])

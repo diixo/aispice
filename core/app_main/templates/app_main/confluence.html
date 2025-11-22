@@ -28,7 +28,6 @@
           </h2>
           <div id="collapseBackend" class="accordion-collapse {{ headingBackend }}" aria-labelledby="headingBackend" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
-              <form>
                 <div class="row g-3">
                   <div class="col-12 col-md-6">
                     <label for="confluenceHost" class="form-label">Confluence Host</label>
@@ -44,7 +43,6 @@
                   <button type="submit" name="action" value="test" class="btn btn-primary px2rem" id="testBtn">Test</button>
                   <button type="submit" name="action" value="save" class="btn btn-secondary px2rem" id="saveBtn">Save</button>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -58,11 +56,10 @@
           </h2>
           <div id="collapseEval" class="accordion-collapse {{ headingEval }}" aria-labelledby="headingEval" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
-              <form>
                 <div class="row g-3">
                   <div class="col-12 col-md-4">
                     <label for="evalSpace" class="form-label">Space</label>
-                    <input type="text" class="form-control" value="SWT1AQ" id="evalSpace">
+                    <input type="text" name="eval_space_field" class="form-control" value="SWT1AQ" id="evalSpace">
                   </div>
                 </div>
 
@@ -70,7 +67,6 @@
                   <button type="submit" name="action" value="evaluate" class="btn btn-primary px2rem" id="evaluateBtn">Evaluate</button>
                   <div class="small text-muted">Stage: <strong class="text-body">idle</strong> · Pages: 0 Added: 0 Changed: 0 Deleted: 0</div>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -84,7 +80,7 @@
           </h2>
           <div id="collapsePick" class="accordion-collapse {{ headingPick }}" aria-labelledby="headingPick" data-bs-parent="#mainAccordion">
             <div class="accordion-body">
-              <form>
+
                 <div class="row g-3">
                   <div class="col-12 col-md-4">
                     <label for="pickSpace" class="form-label">Space</label>
@@ -104,7 +100,7 @@
                     <div class="form-text">Pages with any case-insensitive exact label match are excluded from Pull/Index/Activate.</div>
                   </div>
                 </div>
-              </form>
+
             </div>
           </div>
         </div>
